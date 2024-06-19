@@ -1,0 +1,32 @@
+.featuresContainer {
+  height: 35vh;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+.featuresContainer .featuresContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.featuresContainer .featuresContent h2 {
+  text-align: center;
+}
+.featuresContainer .featuresContent p {
+  text-align: center;
+  width: 350px;
+  margin-top: 15px;
+}
+.featuresContainer .featuresContent .circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 10px solid #42b983;
+  margin-bottom: 25px;
+}
+.featuresContainer .featuresContent .circle img {
+  width: 90%;
+}/*# sourceMappingURL=features.css.map */

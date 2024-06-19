@@ -1,0 +1,17 @@
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid #ccc;
+  padding: 2rem 0 1.5rem;
+
+  .footerContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      color: #2c3e50;
+      text-align: center;
+    }
+  }
+}

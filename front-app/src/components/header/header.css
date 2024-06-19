@@ -1,0 +1,32 @@
+.containerNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+.containerNav .mainNav_logo {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  width: 200px;
+}
+.containerNav .nav {
+  display: flex;
+}
+.containerNav .nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+.containerNav .nav .navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+.containerNav .nav .navLink .icon {
+  margin-right: 5px;
+}
+.containerNav .nav .navLink:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=header.css.map */
