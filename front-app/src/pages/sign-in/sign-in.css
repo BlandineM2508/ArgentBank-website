@@ -1,1 +1,66 @@
-/*# sourceMappingURL=sign-in.css.map */
+.signInWrapper .formContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 85vh;
+  background-color: #100129;
+}
+.signInWrapper .formContainer .formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  padding: 40px;
+  background-color: #fff;
+}
+.signInWrapper .formContainer .formWrapper .checkbox-wrapper input {
+  margin-right: 10px;
+}
+.signInWrapper .formContainer .formWrapper .userIcon {
+  width: 25px;
+  margin-bottom: 20px;
+}
+.signInWrapper .formContainer .formWrapper h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-size: 22px;
+}
+.signInWrapper .formContainer .formWrapper form {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.signInWrapper .formContainer .formWrapper form .input-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.signInWrapper .formContainer .formWrapper form .input-wrapper label {
+  color: #2c3e50;
+  font-weight: bold;
+}
+.signInWrapper .formContainer .formWrapper form .input-wrapper input {
+  padding: 5px;
+  font-size: 1.2rem;
+}
+.signInWrapper .formContainer .formWrapper form .input-remember {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 2px;
+}
+.signInWrapper .formContainer .formWrapper form .input-remember label {
+  color: #2c3e50;
+  margin-left: 0.25rem;
+}
+.signInWrapper .formContainer .formWrapper form .sign-in-button {
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: #00bc77;
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  font-weight: bold;
+  margin-top: 1rem;
+}/*# sourceMappingURL=sign-in.css.map */

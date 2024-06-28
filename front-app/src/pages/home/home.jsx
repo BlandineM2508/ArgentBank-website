@@ -3,7 +3,6 @@ import '../home/home.scss'
 import Header from '../../components/header/header'
 import Hero from '../../components/hero/hero'
 import Features from '../../components/features/features' // Assurez-vous que le chemin est correct
-import Footer from '../../components/footer/footer'
 
 const Home = ({ featuresData }) => {
   return (
@@ -11,7 +10,6 @@ const Home = ({ featuresData }) => {
       <Header />
       <Hero />
       <Features featuresData={featuresData} />
-      <Footer />
     </div>
   )
 }

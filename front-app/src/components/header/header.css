@@ -12,21 +12,27 @@
 }
 .containerNav .nav {
   display: flex;
+  gap: 10px;
 }
 .containerNav .nav a {
-  font-weight: bold;
   color: #2c3e50;
+}
+.containerNav .nav .iconProfile {
+  width: 30px;
+  margin-right: 5px;
 }
 .containerNav .nav .navLink {
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  margin-right: 0.5rem;
 }
-.containerNav .nav .navLink .icon {
-  margin-right: 5px;
+.containerNav .nav .navLink .iconSignOut {
+  width: 30px;
+  cursor: pointer;
+  margin-right: -5px;
 }
 .containerNav .nav .navLink:hover {
   text-decoration: underline;
+  cursor: pointer;
 }/*# sourceMappingURL=header.css.map */

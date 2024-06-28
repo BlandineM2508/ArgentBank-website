@@ -1,5 +1,5 @@
 :root {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -51,12 +51,11 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-*{
+* {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -70,4 +69,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
