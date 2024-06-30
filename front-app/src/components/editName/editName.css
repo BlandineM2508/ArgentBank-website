@@ -1,4 +1,8 @@
 .editNameWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   max-width: 400px;
   margin: auto;
   margin-top: 20px;
@@ -7,27 +11,33 @@
   box-sizing: border-box;
   padding: 1.5em;
 }
-.editNameWrapper h2 {
-  margin: 0 0 20px 0;
-  font-weight: 500;
+.editNameWrapper h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size: 30px;
 }
-.editNameWrapper form {
+.editNameWrapper .editForm {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 10px;
 }
-.editNameWrapper form .inputGroup {
+.editNameWrapper .editForm .editFormTitle {
+  margin: 0 0 20px 0;
+  font-weight: 500;
+  text-align: center;
+  font-size: 30px;
+}
+.editNameWrapper .editForm .editFormWrapper {
   display: flex;
   align-items: center;
 }
-.editNameWrapper form .inputGroup label {
+.editNameWrapper .editForm .editFormWrapper .editFormLabel {
   flex: 1;
 }
-.editNameWrapper form .inputGroup input {
+.editNameWrapper .editForm .editFormWrapper .editFormInput {
   flex: 1;
   width: 100%;
   height: 25px;
@@ -35,20 +45,20 @@
   border-radius: 4px;
   padding: 5px;
 }
-.editNameWrapper form .inputGroup input:-moz-read-only {
+.editNameWrapper .editForm .editFormWrapper .editFormInput:-moz-read-only {
   background-color: #ececec;
 }
-.editNameWrapper form .inputGroup input:read-only {
+.editNameWrapper .editForm .editFormWrapper .editFormInput:read-only {
   background-color: #ececec;
 }
-.editNameWrapper .buttonContainer {
+.editNameWrapper .editFormButton {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 20px;
 }
-.editNameWrapper .buttonContainer .save,
-.editNameWrapper .buttonContainer .cancel {
+.editNameWrapper .editFormButton .editFormSubmit,
+.editNameWrapper .editFormButton .editFormCancel {
   border-radius: 5px;
   padding: 10px 50px;
   background-color: #00bc77;
@@ -57,15 +67,8 @@
   border: none;
   font-weight: bold;
 }
-
-.headerName {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.headerName .buttonEdit {
+.editNameWrapper .editButton {
+  width: 125px;
   border-color: #00bc77;
   background-color: #00bc77;
   font-weight: bold;
@@ -76,17 +79,4 @@
   color: #fff;
   font-size: 15px;
   border: none;
-}
-
-@media (max-width: 720px) {
-  .editNameWrapper {
-    width: 90%;
-    padding-top: 10px;
-  }
-  .editNameWrapper form {
-    padding: 30px;
-  }
-  .editNameWrapper .buttonContainer {
-    flex-direction: column;
-  }
 }/*# sourceMappingURL=editName.css.map */

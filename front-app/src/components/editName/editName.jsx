@@ -1,141 +1,135 @@
-import { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import PropTypes from 'prop-types'
-import { updateUserName } from '../../redux/slice'
-import { saveUserProfile } from '../../data/api'
-import { createSelector } from 'reselect'
-import '../editName/editName.scss'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setUser } from '../../redux/slice'
+import './editName.scss'
 
-const EditName = ({ onCancel }) => {
+const EditName = () => {
+  const [isEditingUser, setIsEditingUser] = useState(false)
+  const [userName, setUserName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const userData = useSelector((state) => state.auth.user)
+  const token = useSelector((state) => state.auth.token)
   const dispatch = useDispatch()
 
-  const selectProfile = (state) => state.profile.profile
-  const selectAuth = (state) => state.auth
-
-  const selectUserInfo = createSelector([selectProfile], (profile) => ({
-    userName: profile?.userName,
-    firstName: profile?.user?.firstName,
-    lastName: profile?.user?.lastName,
-  }))
-
-  const selectToken = createSelector([selectAuth], (auth) => auth.token)
-
-  const {
-    firstName = '',
-    lastName = '',
-    userName = '',
-  } = useSelector(selectUserInfo)
-  const token = useSelector(selectToken)
-
-  const [newUserName, setNewUserName] = useState(userName)
-  const [isEditing, setEditing] = useState(false)
-
   useEffect(() => {
-    const storedUserName = localStorage.getItem('userName')
-    if (storedUserName) {
-      setNewUserName(storedUserName)
-    } else if (userName) {
-      setNewUserName(userName)
+    if (!token || !userData) {
+      return
     }
-  }, [userName])
 
-  const handleSaveUserProfile = async (e) => {
-    e.preventDefault()
-    if (newUserName !== userName) {
-      try {
-        await saveUserProfile(token, { userName: newUserName })
-        dispatch(updateUserName({ userName: newUserName }))
-        localStorage.setItem('userName', newUserName)
-        setEditing(false)
-      } catch (error) {
-        console.error(
-          "Erreur lors de la mise à jour du nom d'utilisateur:",
-          error
-        )
-      }
-    } else {
-      setEditing(false)
+    if (userData && isEditingUser) {
+      setUserName(userData.userName || '')
+      setFirstName(userData.firstName || '')
+      setLastName(userData.lastName || '')
     }
+  }, [userData, isEditingUser, token])
+
+  if (!userData) {
+    return <div>Loading...</div>
   }
 
-  const handleEditClick = () => {
-    setEditing(true)
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault()
 
-  const handleCancelEdit = () => {
-    setEditing(false)
-    onCancel() // Propagation de l'événement d'annulation à un gestionnaire supérieur si nécessaire
-  }
+    const formData = {
+      userName,
+      firstName,
+      lastName,
+    }
 
-  const handleChange = (e) => {
-    setNewUserName(e.target.value) // Met à jour le nouveau nom d'utilisateur à chaque changement dans l'input
+    fetch('http://localhost:3001/api/v1/user/profile', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        dispatch(setUser({ userName, firstName, lastName }))
+        setIsEditingUser(false)
+      })
+      .catch((error) => {
+        console.log('Error:', error)
+      })
   }
 
   return (
-    <div>
-      {isEditing ? (
-        <div className="editNameWrapper">
-          <h2>Edit User Info</h2>
-          <form>
-            <div className="inputGroup">
-              <label htmlFor="userName">User Name</label>
-              <input
-                type="text"
-                placeholder={userName}
-                value={newUserName} // Ajout de la valeur de newUserName
-                onChange={handleChange}
-              />
-            </div>
-            <div className="inputGroup">
-              <label htmlFor="firstName">First Name</label>
-              <input
-                type="text"
-                placeholder={firstName} // Utilisation du placeholder dynamique
-                value={firstName} // Ajout de la valeur de firstName
-                disabled
-              />
-            </div>
-            <div className="inputGroup">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                type="text"
-                placeholder={lastName} // Utilisation du placeholder dynamique
-                value={lastName} // Ajout de la valeur de lastName
-                disabled
-              />
-            </div>
-          </form>
-          <div className="buttonContainer">
-            <button
-              className="save"
+    <div className="editNameWrapper">
+      {!isEditingUser && (
+        <h1>
+          Welcome back <br /> {userData.firstName} {userData.lastName}
+        </h1>
+      )}
+      {isEditingUser && (
+        <form className="editForm" onSubmit={handleSubmit}>
+          <h2 className="editFormTitle">Edit user info</h2>
+          <div className="editFormWrapper">
+            <label htmlFor="username" className="editFormLabel">
+              User Name:
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="userName"
+              value={userName}
+              className="editFormInput"
+              onChange={(event) => setUserName(event.target.value)}
+            />
+          </div>
+          <div className="editFormWrapper">
+            <label htmlFor="firstname" className="editFormLabel">
+              First name:
+            </label>
+            <input
+              type="text"
+              id="firstname"
+              name="firstName"
+              value={firstName}
+              disabled={true}
+              className="editFormInput"
+              onChange={(event) => setFirstName(event.target.value)}
+            />
+          </div>
+          <div className="editFormWrapper">
+            <label htmlFor="lastname" className="editFormLabel">
+              Last name:
+            </label>
+            <input
+              type="text"
+              id="lastname"
+              name="lastName"
+              value={lastName}
+              disabled={true}
+              className="editFormInput"
+              onChange={(event) => setLastName(event.target.value)}
+            />
+          </div>
+          <div className="editFormButton">
+            <input
               type="submit"
-              onClick={handleSaveUserProfile}
+              value="Enregistrer"
+              className="editFormSubmit"
+            />
+            <button
+              type="button"
+              onClick={() => setIsEditingUser(false)}
+              className="editFormCancel"
             >
-              Save
-            </button>
-            <button className="cancel" type="button" onClick={handleCancelEdit}>
-              Cancel
+              Annuler
             </button>
           </div>
-        </div>
-      ) : (
-        <div className="headerName">
-          <h1>
-            Welcome back
-            <br />
-            {newUserName} !
-          </h1>
-          <button className="buttonEdit" onClick={handleEditClick}>
-            Edit Name
-          </button>
-        </div>
+        </form>
+      )}
+      {!isEditingUser && (
+        <button className="editButton" onClick={() => setIsEditingUser(true)}>
+          Edit Name
+        </button>
       )}
     </div>
   )
 }
 
-EditName.propTypes = {
-  onCancel: PropTypes.func,
-  onEditClick: PropTypes.func,
-}
 export default EditName

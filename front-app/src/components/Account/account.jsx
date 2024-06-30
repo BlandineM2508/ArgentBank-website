@@ -47,7 +47,8 @@ Account.propTypes = {
     PropTypes.shape({
       type: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
-      balance: PropTypes.number.isRequired,
+      balance: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
       balanceDescription: PropTypes.string.isRequired,
     })
   ).isRequired,

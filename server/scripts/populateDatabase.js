@@ -25,4 +25,4 @@ users.forEach(user => {
     .catch(error => console.log(error));
 });
 
-module.exports = { users }; // Utilisation de module.exports pour l'exportation
+

@@ -1,4 +1,8 @@
 .editNameWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   max-width: 400px;
   margin: auto;
   margin-top: 20px;
@@ -7,29 +11,36 @@
   box-sizing: border-box;
   padding: 1.5em;
 
-  h2 {
-    margin: 0 0 20px 0;
-    font-weight: 500;
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-size: 30px;
   }
 
-  form {
+  .editForm {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 10px;
 
-    .inputGroup {
+    .editFormTitle {
+      margin: 0 0 20px 0;
+      font-weight: 500;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .editFormWrapper {
       display: flex;
       align-items: center;
 
-      label {
+      .editFormLabel {
         flex: 1;
       }
 
-      input {
+      .editFormInput {
         flex: 1;
         width: 100%;
         height: 25px;
@@ -44,14 +55,14 @@
     }
   }
 
-  .buttonContainer {
+  .editFormButton {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
 
-    .save,
-    .cancel {
+    .editFormSubmit,
+    .editFormCancel {
       border-radius: 5px;
       padding: 10px 50px;
       background-color: #00bc77;
@@ -61,16 +72,9 @@
       font-weight: bold;
     }
   }
-}
 
-.headerName {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  .buttonEdit {
+  .editButton {
+    width: 125px;
     border-color: #00bc77;
     background-color: #00bc77;
     font-weight: bold;
@@ -81,20 +85,5 @@
     color: #fff;
     font-size: 15px;
     border: none;
-  }
-}
-
-@media (max-width: 720px) {
-  .editNameWrapper {
-    width: 90%;
-    padding-top: 10px;
-
-    form {
-      padding: 30px;
-    }
-
-    .buttonContainer {
-      flex-direction: column;
-    }
   }
 }

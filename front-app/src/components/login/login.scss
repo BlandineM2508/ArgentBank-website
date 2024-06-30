@@ -1,0 +1,85 @@
+.signInWrapper {
+  .formContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 85vh;
+    background-color: #100129;
+
+    .formWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+      padding: 40px;
+      background-color: #fff;
+
+      .checkbox-wrapper input {
+        margin-right: 10px;
+      }
+
+      .userIcon {
+        width: 35px;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #2c3e50;
+        font-size: 22px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+
+        .input-wrapper {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          margin-bottom: 1rem;
+
+          label {
+            color: #2c3e50;
+            font-weight: bold;
+          }
+
+          input {
+            padding: 5px;
+            font-size: 1.2rem;
+          }
+        }
+
+        .input-remember {
+          display: flex;
+          justify-content: flex-start;
+          padding-left: 2px;
+
+          label {
+            color: #2c3e50;
+            margin-left: 0.25rem;
+          }
+        }
+
+        .sign-in-button {
+          border-radius: 5px;
+          padding: 10px 20px;
+          background-color: #00bc77;
+          color: #fff;
+          font-size: 15px;
+          border: none;
+          font-weight: bold;
+          margin-top: 1rem;
+        }
+
+        .error {
+          text-align: center;
+          color: red;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
