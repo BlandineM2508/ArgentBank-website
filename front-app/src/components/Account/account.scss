@@ -13,6 +13,7 @@
   box-sizing: border-box;
   text-align: left;
   margin-bottom: 2rem;
+  flex-direction: row;
 
   .account-amount {
     margin: 0;
@@ -30,13 +31,9 @@
     font-weight: normal;
   }
 
-  .account-content-wrapper {
-    width: 100%;
-    flex: 1;
-  }
-
   .arrow {
-    background: url(../../../public/img/arrow.png);
+    background: url(../../assets/img/arrow.png);
+    background: no-repeat;
     width: 40px;
     height: 40px;
     border: solid white;
@@ -53,19 +50,5 @@
 
     /* Arrow pointing right by default */
     transform: rotate(-45deg);
-  }
-}
-
-@media (min-width: 720px) {
-  .account {
-    flex-direction: row;
-  }
-
-  .account-content-wrapper.cta {
-    flex: 0;
-  }
-
-  .transaction-button {
-    width: 200px;
   }
 }

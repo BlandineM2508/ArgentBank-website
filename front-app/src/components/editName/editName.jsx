@@ -60,7 +60,7 @@ const EditName = () => {
     <div className="editNameWrapper">
       {!isEditingUser && (
         <h1>
-          Welcome back <br /> {userData.firstName} {userData.lastName}
+          Welcome back <br /> {userData.firstName} {userData.lastName} !
         </h1>
       )}
       {isEditingUser && (

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './login.scss'
-import User from '../../../public/img/user.svg'
+import User from '../../assets/img/user.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -77,6 +77,14 @@ const LogIn = () => {
         })
       })
   }
+
+  useEffect(() => {
+    // Vérifiez la présence du token dans localStorage
+    const token = localStorage.getItem('token')
+    if (token) {
+      dispatch(loginUserSuccess(token))
+    }
+  }, [dispatch])
 
   useEffect(() => {
     if (isAuthenticated) {
