@@ -110,7 +110,7 @@ paths:
       parameters:
         - in: header
           name: Authorization
-          description: Attach Bearer JWT token
+          description: Attach Bearer token
           required: true
           type: string
       produces:
