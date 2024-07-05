@@ -14,6 +14,18 @@
       margin-top: 50px;
       padding: 40px;
       background-color: #fff;
+      width: 100%;
+      max-width: 400px; // Ajout d'une largeur maximale pour une meilleure réactivité
+
+      @media (max-width: 768px) {
+        padding: 30px;
+        margin-top: 30px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 20px;
+        margin-top: 20px;
+      }
 
       .checkbox-wrapper input {
         margin-right: 10px;
@@ -22,18 +34,27 @@
       .userIcon {
         width: 35px;
         margin-bottom: 20px;
+
+        @media (max-width: 480px) {
+          width: 30px;
+        }
       }
 
       h2 {
         margin-bottom: 20px;
         color: #2c3e50;
         font-size: 22px;
+
+        @media (max-width: 480px) {
+          font-size: 20px;
+        }
       }
 
       form {
         display: flex;
         flex-direction: column;
         background-color: #fff;
+        width: 100%;
 
         .input-wrapper {
           display: flex;
@@ -49,6 +70,10 @@
           input {
             padding: 5px;
             font-size: 1.2rem;
+
+            @media (max-width: 480px) {
+              font-size: 1rem;
+            }
           }
         }
 
@@ -72,12 +97,21 @@
           border: none;
           font-weight: bold;
           margin-top: 1rem;
+
+          @media (max-width: 480px) {
+            padding: 8px 16px;
+            font-size: 14px;
+          }
         }
 
         .error {
           text-align: center;
           color: red;
           margin-top: 10px;
+
+          @media (max-width: 480px) {
+            font-size: 14px;
+          }
         }
       }
     }

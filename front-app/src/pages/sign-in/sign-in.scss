@@ -76,4 +76,95 @@
       }
     }
   }
+
+  @media (max-width: 1024px) {
+    .formContainer {
+      height: auto;
+      align-items: center;
+
+      .formWrapper {
+        width: 80%;
+        padding: 20px;
+
+        .userIcon {
+          width: 30px;
+        }
+
+        form {
+          .input-wrapper {
+            input {
+              font-size: 1rem;
+            }
+          }
+
+          .sign-in-button {
+            padding: 8px 16px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .formContainer {
+      height: auto;
+      padding: 20px;
+
+      .formWrapper {
+        width: 90%;
+        padding: 20px;
+
+        .userIcon {
+          width: 25px;
+        }
+
+        form {
+          .input-wrapper {
+            input {
+              font-size: 1rem;
+            }
+          }
+
+          .sign-in-button {
+            padding: 8px 16px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .formContainer {
+      height: auto;
+      padding: 10px;
+
+      .formWrapper {
+        width: 100%;
+        padding: 10px;
+
+        .userIcon {
+          width: 20px;
+        }
+
+        h2 {
+          font-size: 18px;
+        }
+
+        form {
+          .input-wrapper {
+            input {
+              font-size: 0.9rem;
+            }
+          }
+
+          .sign-in-button {
+            padding: 6px 12px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
 }

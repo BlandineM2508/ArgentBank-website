@@ -13,23 +13,48 @@
   margin-top: 50px;
   padding: 40px;
   background-color: #fff;
+  width: 100%;
+  max-width: 400px;
+}
+@media (max-width: 768px) {
+  .signInWrapper .formContainer .formWrapper {
+    padding: 30px;
+    margin-top: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .signInWrapper .formContainer .formWrapper {
+    padding: 20px;
+    margin-top: 20px;
+  }
 }
 .signInWrapper .formContainer .formWrapper .checkbox-wrapper input {
   margin-right: 10px;
 }
 .signInWrapper .formContainer .formWrapper .userIcon {
-  width: 25px;
+  width: 35px;
   margin-bottom: 20px;
+}
+@media (max-width: 480px) {
+  .signInWrapper .formContainer .formWrapper .userIcon {
+    width: 30px;
+  }
 }
 .signInWrapper .formContainer .formWrapper h2 {
   margin-bottom: 20px;
   color: #2c3e50;
   font-size: 22px;
 }
+@media (max-width: 480px) {
+  .signInWrapper .formContainer .formWrapper h2 {
+    font-size: 20px;
+  }
+}
 .signInWrapper .formContainer .formWrapper form {
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  width: 100%;
 }
 .signInWrapper .formContainer .formWrapper form .input-wrapper {
   display: flex;
@@ -44,6 +69,11 @@
 .signInWrapper .formContainer .formWrapper form .input-wrapper input {
   padding: 5px;
   font-size: 1.2rem;
+}
+@media (max-width: 480px) {
+  .signInWrapper .formContainer .formWrapper form .input-wrapper input {
+    font-size: 1rem;
+  }
 }
 .signInWrapper .formContainer .formWrapper form .input-remember {
   display: flex;
@@ -63,4 +93,20 @@
   border: none;
   font-weight: bold;
   margin-top: 1rem;
+}
+@media (max-width: 480px) {
+  .signInWrapper .formContainer .formWrapper form .sign-in-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+.signInWrapper .formContainer .formWrapper form .error {
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+}
+@media (max-width: 480px) {
+  .signInWrapper .formContainer .formWrapper form .error {
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=login.css.map */

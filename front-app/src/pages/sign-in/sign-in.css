@@ -63,4 +63,67 @@
   border: none;
   font-weight: bold;
   margin-top: 1rem;
+}
+@media (max-width: 1024px) {
+  .signInWrapper .formContainer {
+    height: auto;
+    align-items: center;
+  }
+  .signInWrapper .formContainer .formWrapper {
+    width: 80%;
+    padding: 20px;
+  }
+  .signInWrapper .formContainer .formWrapper .userIcon {
+    width: 30px;
+  }
+  .signInWrapper .formContainer .formWrapper form .input-wrapper input {
+    font-size: 1rem;
+  }
+  .signInWrapper .formContainer .formWrapper form .sign-in-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .signInWrapper .formContainer {
+    height: auto;
+    padding: 20px;
+  }
+  .signInWrapper .formContainer .formWrapper {
+    width: 90%;
+    padding: 20px;
+  }
+  .signInWrapper .formContainer .formWrapper .userIcon {
+    width: 25px;
+  }
+  .signInWrapper .formContainer .formWrapper form .input-wrapper input {
+    font-size: 1rem;
+  }
+  .signInWrapper .formContainer .formWrapper form .sign-in-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .signInWrapper .formContainer {
+    height: auto;
+    padding: 10px;
+  }
+  .signInWrapper .formContainer .formWrapper {
+    width: 100%;
+    padding: 10px;
+  }
+  .signInWrapper .formContainer .formWrapper .userIcon {
+    width: 20px;
+  }
+  .signInWrapper .formContainer .formWrapper h2 {
+    font-size: 18px;
+  }
+  .signInWrapper .formContainer .formWrapper form .input-wrapper input {
+    font-size: 0.9rem;
+  }
+  .signInWrapper .formContainer .formWrapper form .sign-in-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=sign-in.css.map */

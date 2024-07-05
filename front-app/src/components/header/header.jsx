@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import '../header/header.scss'
 import { useSelector, useDispatch } from 'react-redux'
-import Logo from '../../assets/img/argentBankLogo.png'
+import Logo from '../../assets/img/argentBankLogo.webp'
 import User from '../../assets/img/user.svg'
 import SignOut from '../../assets/img/logout.svg'
 import { logoutUser } from '../../redux/slice'

@@ -1,5 +1,5 @@
 .heroBg {
-  background-image: url(../../assets/img/bank-tree.jpeg);
+  background-image: url(../../assets/img/bank-tree.webp);
   background-position: 0% 33%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -28,6 +28,45 @@
       color: #2c3e50;
       font-size: 1.2rem;
       line-height: normal;
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: 300px;
+
+    .heroTagline {
+      width: 80%;
+      height: auto;
+      right: 10%;
+      top: 15%;
+      padding: 1.5rem;
+
+      .subtitle {
+        font-size: 1.3rem;
+      }
+
+      .text {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    height: 250px;
+
+    .heroTagline {
+      width: 90%;
+      right: 5%;
+      top: 10%;
+      padding: 1rem;
+
+      .subtitle {
+        font-size: 1.2rem;
+      }
+
+      .text {
+        font-size: 0.9rem;
+      }
     }
   }
 }

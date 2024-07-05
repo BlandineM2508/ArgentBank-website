@@ -12,7 +12,7 @@
 }
 .containerNav .nav {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 .containerNav .nav a {
   color: #2c3e50;
@@ -35,4 +35,48 @@
 .containerNav .nav .navLink:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .containerNav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  .containerNav .mainNav_logo {
+    width: 150px;
+    margin-bottom: 10px;
+  }
+  .containerNav .nav {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .containerNav .nav a {
+    padding: 5px 0;
+  }
+  .containerNav .nav .navLink {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .containerNav .nav .iconSignOut {
+    width: 25px;
+  }
+}
+@media (max-width: 480px) {
+  .containerNav .mainNav_logo {
+    width: 120px;
+  }
+  .containerNav .nav {
+    gap: 5px;
+  }
+  .containerNav .nav .iconProfile {
+    width: 25px;
+  }
+  .containerNav .nav .navLink {
+    font-size: 14px;
+  }
+  .containerNav .nav .navLink .iconSignOut {
+    width: 20px;
+  }
 }/*# sourceMappingURL=header.css.map */

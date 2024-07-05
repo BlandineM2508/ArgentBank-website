@@ -32,7 +32,7 @@
   }
 
   .arrow {
-    background: url(../../assets/img/arrow.png);
+    background: url(../../assets/img/arrow.webp);
     background: no-repeat;
     width: 40px;
     height: 40px;
@@ -50,5 +50,36 @@
 
     /* Arrow pointing right by default */
     transform: rotate(-45deg);
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+
+    .account-amount {
+      font-size: 2rem;
+    }
+
+    .arrow {
+      margin-left: 0;
+      margin-top: 1em;
+      transform: rotate(-45deg);
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    padding: 1rem;
+
+    .account-amount {
+      font-size: 1.5rem;
+    }
+
+    .arrow {
+      width: 30px;
+      height: 30px;
+      border-width: 0 4px 4px 0;
+      padding: 2px;
+    }
   }
 }

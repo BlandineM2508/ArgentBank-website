@@ -13,6 +13,7 @@
   box-sizing: border-box;
   text-align: left;
   margin-bottom: 2rem;
+  flex-direction: row;
 }
 .account .account-amount {
   margin: 0;
@@ -27,12 +28,9 @@
   font-size: 1rem;
   font-weight: normal;
 }
-.account .account-content-wrapper {
-  width: 100%;
-  flex: 1;
-}
 .account .arrow {
-  background: url(../../../public/img/arrow.png);
+  background: url(../../assets/img/arrow.webp);
+  background: no-repeat;
   width: 40px;
   height: 40px;
   border: solid white;
@@ -48,15 +46,32 @@
 .account .arrow.rotate {
   transform: rotate(45deg);
 }
-
-@media (min-width: 720px) {
+@media (max-width: 768px) {
   .account {
-    flex-direction: row;
+    flex-direction: column;
+    text-align: center;
   }
-  .account-content-wrapper.cta {
-    flex: 0;
+  .account .account-amount {
+    font-size: 2rem;
   }
-  .transaction-button {
-    width: 200px;
+  .account .arrow {
+    margin-left: 0;
+    margin-top: 1em;
+    transform: rotate(-45deg);
+  }
+}
+@media (max-width: 480px) {
+  .account {
+    width: 90%;
+    padding: 1rem;
+  }
+  .account .account-amount {
+    font-size: 1.5rem;
+  }
+  .account .arrow {
+    width: 30px;
+    height: 30px;
+    border-width: 0 4px 4px 0;
+    padding: 2px;
   }
 }/*# sourceMappingURL=account.css.map */
