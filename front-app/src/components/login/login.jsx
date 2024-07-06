@@ -14,15 +14,15 @@ const LogIn = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  // Déclaration des états locaux pour gérer les entrées de formulaire et les messages d'erreur
+  // États locaux pour gérer les entrées de formulaire et les messages d'erreur
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [rememberMe, setRememberMe] = useState(false)
   const [loginMessage, setLoginMessage] = useState('')
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated) // Recuperation des infos dans le slice
 
-  //Ajout des fonctions "handleEmailChange" et "handlePasswordChange" permettant la mise à jour des états.
+  // Mise à jour de l'état des champs de formulaire
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
   }
@@ -31,16 +31,16 @@ const LogIn = () => {
     setPassword(event.target.value)
   }
 
+  // Redirection vers la page utilisateur si authentifié
   useEffect(() => {
     if (isAuthenticated) {
       navigate('/user')
     }
   }, [isAuthenticated, navigate])
 
-  // Ajout de la fonction "handleAuth" pour envoyer à l'API les données d'authentification en utilisant la valeur actuelle des états.
+  // Gestion de l'authentification
   const handleAuth = (event) => {
     event.preventDefault()
-
     dispatch(loginStart())
 
     fetch('http://localhost:3001/api/v1/user/login', {
@@ -57,9 +57,7 @@ const LogIn = () => {
         return response.json()
       })
       .then((data) => {
-        console.log("Réponse de l'API :", data)
         dispatch(loginUserSuccess(data.body.token))
-        console.log('Connexion réussie !')
         // Stockage du token basé sur le souhait de l'utilisateur de se souvenir de la connexion
         if (rememberMe) {
           localStorage.setItem('token', data.body.token)
@@ -78,18 +76,18 @@ const LogIn = () => {
       })
   }
 
+  // Vérifie la présence du token dans le localStorage
   useEffect(() => {
-    // Vérifiez la présence du token dans localStorage
     const token = localStorage.getItem('token')
     if (token) {
       dispatch(loginUserSuccess(token))
     }
   }, [dispatch])
 
+  // Redirection si déjà authentifié
   useEffect(() => {
     if (isAuthenticated) {
       navigate('/user')
-      console.log('Token présent')
     }
   }, [isAuthenticated, navigate])
 

@@ -17,6 +17,7 @@ const EditName = () => {
       return
     }
 
+    //Si on a les données de l'utilisateur en mode edition alors on affiche les données correspondantes
     if (userData && isEditingUser) {
       setUserName(userData.userName || '')
       setFirstName(userData.firstName || '')
@@ -24,10 +25,12 @@ const EditName = () => {
     }
   }, [userData, isEditingUser, token])
 
+  //Temps de chargement si les données ne sont pas accessibles
   if (!userData) {
     return <div>Loading...</div>
   }
 
+  //Mise a jour du formulaire d'envoi
   const handleSubmit = (event) => {
     event.preventDefault()
 
@@ -48,7 +51,7 @@ const EditName = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
-        dispatch(setUser({ userName, firstName, lastName }))
+        dispatch(setUser({ userName, firstName, lastName })) //Mis a jour de l'etat via le slice des valeurs correpondantes
         setIsEditingUser(false)
       })
       .catch((error) => {

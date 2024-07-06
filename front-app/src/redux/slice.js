@@ -14,12 +14,12 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    // Lance le processus de connexion, à ce stade le statut est en attente et aucun token n'est stocker.
+    // Lance le processus de connexion, à ce stade le statut est en attente et aucun token n'est stocké.
     loginStart(state) {
       state.loading = true
       state.error = null
     },
-    //connexion reussi donc token stocké
+    // Connexion réussie, le token est stocké
     loginUserSuccess(state, action) {
       state.loading = false
       state.isAuthenticated = true
@@ -28,10 +28,12 @@ const authSlice = createSlice({
     setUser(state, action) {
       state.user = action.payload
     },
+    // Connexion échouée, enregistre l'erreur
     loginUserFailure(state, action) {
       state.loading = false
       state.error = action.payload
     },
+    // Déconnexion de l'utilisateur, réinitialise l'état d'authentification
     logoutUser(state) {
       state.isAuthenticated = false
       state.token = null

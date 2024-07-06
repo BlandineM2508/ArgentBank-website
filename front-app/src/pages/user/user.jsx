@@ -26,7 +26,6 @@ const User = ({ accountData }) => {
 
   // Récupération des données utilisateurs,
   //appel à l'api lors du rendu initial et à chaque fois que le token ou le dispach change
-  // via le tableau de dépendance.
   useEffect(() => {
     if (!token) {
       return
@@ -48,7 +47,6 @@ const User = ({ accountData }) => {
         })
         .then((data) => {
           dispatch(setUser(data.body)) // demande à Redux d'utiliser l'action "setUser" pour mettre à jour l'état global.
-          console.log('body :', data.body)
         })
         .catch((error) => {
           console.error('Erreur:', error)
@@ -56,7 +54,7 @@ const User = ({ accountData }) => {
     }
 
     fetchUserProfile()
-  }, [token, dispatch]) // Tableau de dépendance.
+  }, [token, dispatch])
 
   const toggleEditClick = () => {
     setIsEditing(!isEditing)
