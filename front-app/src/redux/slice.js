@@ -25,6 +25,7 @@ const authSlice = createSlice({
       state.isAuthenticated = true
       state.token = action.payload
     },
+    //Maj des nouvelles données de l'utilisateur récupérées via la Db
     setUser(state, action) {
       state.user = action.payload
     },

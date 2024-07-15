@@ -4,18 +4,18 @@ import { setUser } from '../../redux/slice'
 import './editName.scss'
 
 const EditName = () => {
-  const [isEditingUser, setIsEditingUser] = useState(false)
+  const [isEditingUser, setIsEditingUser] = useState(false) //Controle du mode Edition
   const [userName, setUserName] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-  const userData = useSelector((state) => state.auth.user)
+  const userData = useSelector((state) => state.auth.user) //Recuperation des infos srockées dans le slice
   const token = useSelector((state) => state.auth.token)
   const dispatch = useDispatch()
 
   useEffect(() => {
     if (!token || !userData) {
       return
-    }
+    } //Verificaiton si les données sont définies comme existantes
 
     //Si on a les données de l'utilisateur en mode edition alors on affiche les données correspondantes
     if (userData && isEditingUser) {
@@ -39,7 +39,7 @@ const EditName = () => {
       firstName,
       lastName,
     }
-
+    //Données User récupérées
     fetch('http://localhost:3001/api/v1/user/profile', {
       method: 'PUT',
       headers: {

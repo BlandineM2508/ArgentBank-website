@@ -228,14 +228,14 @@ paths:
       summary: Delete transaction
       description: API for deleting a transaction
       parameters:
+        - in: path
+          name: transactionId
+          type: string
+          required: true
+          description: ID of the transaction
         - in: header
           name: Authorization
           description: Attach Bearer token
-          required: true
-          type: string
-        - in: query
-          name: idTransaction
-          description: Id of the transaction that needs to be deleted
           required: true
           type: string
       produces:
@@ -251,6 +251,7 @@ paths:
           description: Transaction not found
         "500":
           description: Internal Server Error
+
 securityDefinitions:
   Bearer:
     type: apiKey
